@@ -5,11 +5,12 @@ import { AddContactComponent } from './add-contact/add-contact.component';
 import { UpdateContactComponent } from './update-contact/update-contact.component';
 import { RechercheParCategorieComponent } from './recherche-par-categorie/recherche-par-categorie.component';
 
+
 const routes: Routes = [
   {path:'contact', component:ContactComponent},
   {path:'add', component:AddContactComponent},
   {path: "updatecontact/:id", component: UpdateContactComponent},
-  {path: "search by category", component: RechercheParCategorieComponent},
+  {path:"search by category",component:RechercheParCategorieComponent},
   { path: "", redirectTo: "contact", pathMatch: "full" },
 ];
 

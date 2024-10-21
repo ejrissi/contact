@@ -8,7 +8,8 @@ import { AddContactComponent } from './add-contact/add-contact.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateContactComponent } from './update-contact/update-contact.component';
 import { ServiceService } from './services/service.service';
-import { HttpClientModule } from '@angular/common/http';
+import { RechercheParCategorieComponent } from './recherche-par-categorie/recherche-par-categorie.component';
+
 
 
 
@@ -20,6 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
    
     AddContactComponent,
    UpdateContactComponent,
+   RechercheParCategorieComponent,
+   
    
    
   
@@ -31,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ ServiceService,HttpClientModule],
+  providers: [ ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

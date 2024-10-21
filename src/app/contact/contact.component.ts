@@ -14,16 +14,14 @@ export class ContactComponent {
   contact?:Contact[];
   
 
-  constructor(  private constr: ServiceService)
+  constructor(private constr :ServiceService)
   {
     
-  }
-
-
-  ngOnInit(): void {
-
     this.contact=this.constr.listecontacts();
   }
+
+
+  
 
   deletecontact(p:Contact)
   {
@@ -31,6 +29,9 @@ export class ContactComponent {
      if (conf)
        this.constr.deleteContact(p);
 
+  }
+  ngOnInit(): void {
+ 
   }
     
 }
