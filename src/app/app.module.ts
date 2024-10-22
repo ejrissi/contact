@@ -5,10 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { AddContactComponent } from './add-contact/add-contact.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateContactComponent } from './update-contact/update-contact.component';
 import { ServiceService } from './services/service.service';
 import { RechercheParCategorieComponent } from './recherche-par-categorie/recherche-par-categorie.component';
+
+
+
 
 
 
@@ -22,6 +25,11 @@ import { RechercheParCategorieComponent } from './recherche-par-categorie/recher
     AddContactComponent,
    UpdateContactComponent,
    RechercheParCategorieComponent,
+
+   
+
+
+   
    
    
    
@@ -32,7 +40,8 @@ import { RechercheParCategorieComponent } from './recherche-par-categorie/recher
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ ServiceService],
   bootstrap: [AppComponent]

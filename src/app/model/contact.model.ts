@@ -7,4 +7,6 @@ export class Contact {
     email? : string;
      date? : Date ;
      categorie! : Categorie;
+ 
+     enabled?: boolean;
     }
