@@ -1,12 +1,7 @@
 <div class="container">
     <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
-      <label>Category</label>
-      <select class="form-control form-control-lg" id="idCat" name="idCat"
-              [(ngModel)]="IdCategorie" (change)="onChange()">
-        <option *ngFor="let cat of categories" [value]="cat.idCat">
-          {{ cat.nomCat }}
-        </option>
-      </select>
+      <label>Search by Name</label>
+      <input type="text" class="form-control form-control-lg" [(ngModel)]="searchName" (input)="onSearch()" placeholder="Enter name" />
     </div>
   
     <div class="card shadow mb-4">
@@ -23,14 +18,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let p of contact">
+            <tr *ngFor="let p of contacts">
               <td>{{ p.id }}</td>
               <td>{{ p.name }}</td>
               <td>{{ p.email }}</td>
               <td>{{ p.date | date: 'dd/MM/yyyy' }}</td>
               <td>{{ p.categorie.nomCat }}</td>
               <td>
-                <button class="btn btn-danger" (click)="deletecontact(p)">Delete</button>
+                <button class="btn btn-danger" (click)="deleteContact(p)">Delete</button>
               </td>
               <td>
                 <a class="btn btn-success" [routerLink]="['/updatecontact', p.id]">Update</a>

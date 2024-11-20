@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Contact } from '../model/contact.model';
 import { ServiceService } from '../services/service.service';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -11,17 +12,18 @@ import { ServiceService } from '../services/service.service';
 export class ContactComponent {
 
 
-  contact?:Contact[];
-  
 
-  constructor(private constr :ServiceService)
+  contact?:Contact[];
+
+
+  constructor(private constr :ServiceService, public authService: AuthService)
   {
-    
+
     this.contact=this.constr.listecontacts();
   }
 
 
-  
+
 
   deletecontact(p:Contact)
   {
@@ -31,7 +33,8 @@ export class ContactComponent {
 
   }
   ngOnInit(): void {
- 
+
   }
-    
+
+
 }

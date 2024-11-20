@@ -1,0 +1,21 @@
+
+.content
+{
+  margin-top: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.btn
+{
+   text-decoration: none;
+   color: gray;
+   transition: all 0.4s ease;
+
+}
+.btn:hover
+{
+  color: rgb(14, 236, 14);
+}

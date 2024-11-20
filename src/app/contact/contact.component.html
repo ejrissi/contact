@@ -16,8 +16,8 @@
                         <td>{{p.email}}</td>
                         <td>{{p.date | date:'dd/MM/yyyy'}}</td>
                         <td>{{p.categorie.nomCat}}</td>
-                        <td><a class="btn btn-danger" (click)="deletecontact(p)">Delete</a></td>
-                        <td><a class="btn btn-success"[routerLink]="['/updatecontact',p.id]">Upadte</a></td>
+                        <td><a *ngIf="authService.isAdmin()"class="btn btn-danger" (click)="deletecontact(p)">Delete</a></td>
+                        <td><a  *ngIf="authService.isAdmin()"     class="btn btn-success"[routerLink]="['/updatecontact',p.id]">Upadte</a></td>
                     </tr>
                 </tbody>
             </table>

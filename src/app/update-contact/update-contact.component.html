@@ -1,35 +1,58 @@
 <div class="container">
-    <div>
-      <h2>Update Contact :</h2>
-    </div>
-    <form (ngSubmit)="updateContact()">
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>ID</label>
-        <input type="text" readonly [(ngModel)]="curcontact.id" name="id" class="form-control">
-      </div>
-      <div class="col-sm-4 col-md-4 col-lg-4">
-        <label>Name</label>
-        <input type="text" [(ngModel)]="curcontact.name" name="name" class="form-control" required>
-      </div>
-      <div class="col-sm-2 col-md-2 col-lg-2">
-        <label>Email</label>
-        <input type="email" [(ngModel)]="curcontact.email" name="email" class="form-control" required>
-      </div>
-      <div class="col-sm-4 col-md-4 col-lg-4">
-        <label>Date</label>
-        <input type="date" [ngModel]="curcontact.date | date: 'yyyy-MM-dd'" (ngModelChange)="curcontact.date = $event" name="date" class="form-control" required>
-      </div>
-      <div class="col-sm-4 col-md-4 col-lg-4">
-        <select class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="updatedCatId" required>
-          <option value="" disabled>Select a category</option>
-          <option *ngFor="let cat of categories" [value]="cat.idCat">
-            {{ cat.nomCat }}
-          </option>
-        </select>
-      </div>
-      <div class="mt-2">
-        <button type="submit" class="btn btn-success">Update</button>
-      </div>
-    </form>
+  <div>
+    <h2>Update Contact:</h2>
   </div>
-  
+  <form   [formGroup]="myform"  (ngSubmit)="updateContact()">
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>ID</label>
+      <input type="text"    readonly [(ngModel)]="curcontact.id" name="id" class="form-control">
+    </div>
+
+
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Name</label>
+      <input type="text" formControlName="name"   [(ngModel)]="curcontact.name" name="name" class="form-control" required minlength="3">
+    </div>
+
+    <p *ngIf="myform.get('name').touched && myform.get('name').hasError('required')" class="text-danger">Write your Name !</p>
+
+    <p *ngIf=" myform.get('name').hasError('minlength')" class="text-danger">at Minumum 5 characters!</p>
+
+
+
+
+
+    <div class="col-sm-2 col-md-2 col-lg-2">
+      <label>Email</label>
+      <input type="email" formControlName="email"   [(ngModel)]="curcontact.email" name="email" class="form-control" required>
+    </div>
+
+    <p *ngIf="myform.get('email').touched && myform.get('email').hasError('required')" class="text-danger">Write your Email !</p>
+
+    <p *ngIf=" myform.get('email').hasError('minlength')" class="text-danger">at Minumum 5 characters!</p>
+
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <label>Date</label>
+      <input type="date" formControlName="date"   [ngModel]="curcontact.date | date: 'yyyy-MM-dd'" (ngModelChange)="curcontact.date = $event" name="date" class="form-control" required>
+    </div>
+
+    <p *ngIf="myform.get('date').touched && myform.get('date').hasError('required')" class="text-danger">Write your Date !</p>
+
+
+    <div class="col-sm-4 col-md-4 col-lg-4">
+      <select  formControlName="type"   class="form-control form-control-lg" id="idCat" name="idCat" [(ngModel)]="updatedCatId" required>
+        <option value="" disabled>Select a category</option>
+        <option *ngFor="let cat of categories" [value]="cat.idCat">
+          {{ cat.nomCat }}
+        </option>
+      </select>
+    </div>
+
+    <p *ngIf="myform.get('type').touched && myform.get('type').hasError('required')" class="text-danger">Write your Email !</p>
+    <div class="mt-2">
+      <button type="submit" class="btn btn-success">Update</button>
+    </div>
+  </form>
+</div>

@@ -9,31 +9,35 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateContactComponent } from './update-contact/update-contact.component';
 import { ServiceService } from './services/service.service';
 import { RechercheParCategorieComponent } from './recherche-par-categorie/recherche-par-categorie.component';
-
-
-
-
-
-
+import { RechercheParNomComponent } from './recherche-par-nom/recherche-par-nom.component';
+import { LoginComponent } from './login/login.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { ListeCategoriesComponent } from './liste-categories/liste-categories.component';
+import { UpdateCategorieComponent } from './update-categorie/update-categorie.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactComponent,
-   
+
     AddContactComponent,
    UpdateContactComponent,
    RechercheParCategorieComponent,
+   RechercheParNomComponent,
+   LoginComponent,
+   ForbiddenComponent,
+   ListeCategoriesComponent,
+   UpdateCategorieComponent,
 
-   
 
 
-   
-   
-   
-   
-  
+
+
+
+
+
+
 
 
   ],
