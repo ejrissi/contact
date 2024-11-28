@@ -8,7 +8,7 @@
         </option>
       </select>
     </div>
-  
+
     <div class="card shadow mb-4">
       <div class="card-body">
         <table class="table table-striped">
@@ -25,10 +25,10 @@
           <tbody>
             <tr *ngFor="let p of contact">
               <td>{{ p.id }}</td>
-              <td>{{ p.name }}</td>
+              <td>{{ p.nom }}</td>
               <td>{{ p.email }}</td>
               <td>{{ p.date | date: 'dd/MM/yyyy' }}</td>
-              <td>{{ p.categorie.nomCat }}</td>
+              <!-- <td>{{ p.categorie.nomCat }}</td> -->
               <td>
                 <button class="btn btn-danger" (click)="deletecontact(p)">Delete</button>
               </td>
@@ -41,4 +41,3 @@
       </div>
     </div>
   </div>
-  

@@ -1,5 +1,4 @@
 export class Categorie {
-    idCat! : number; 
+    idCat! : number;
     nomCat! : string;
     }
-    

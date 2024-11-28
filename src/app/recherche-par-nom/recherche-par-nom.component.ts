@@ -8,26 +8,41 @@ import { ServiceService } from '../services/service.service';
   styles: []
 })
 export class RechercheParNomComponent implements OnInit {
-  contacts!: Contact[]; 
+  contact!: Contact[];
   searchName: string = '';
 
   constructor(private constr: ServiceService) {
-    this.contacts = this.constr.listecontacts();
+    this.constr.listeContact().subscribe(prods => {
+      console.log(prods);
+      this.contact = prods;
+      });
   }
 
   ngOnInit(): void {}
 
   onSearch() {
-    console.log("Searching for Name: ", this.searchName);
-    this.contacts = this.constr.rechercherParNom(this.searchName);
-    console.log("Filtered Contacts: ", this.contacts); 
+
+    this.contact = this.constr.rechercherParNom(this.searchName);
+    console.log("Filtered Contacts: ", this.contact);
   }
 
   deleteContact(p: Contact) {
-    let conf = confirm("Are you sure?");
-    if (conf) {
-      this.constr.deleteContact(p);
-      this.contacts = this.constr.listecontacts();
-    }
+    let conf = confirm("Etes-vous sûr ?");
+    if (conf)
+    this.constr.deleteContact(p.id).subscribe(() => {
+    console.log("produit supprimé");
+    this.chargerContact();
+    });
   }
+
+  chargerContact(){
+    this.constr.listeContact().subscribe(prods => {
+    console.log(prods);
+    this.contact = prods;
+    });
+
+
+
+  }
+
 }

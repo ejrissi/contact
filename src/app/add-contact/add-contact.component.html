@@ -4,18 +4,18 @@
   </div>
 
   <form  [formGroup]="myform" (ngSubmit)="addContact()">
-    <div class="col-sm-2 col-md-2 col-lg-2">
+    <!-- <div class="col-sm-2 col-md-2 col-lg-2">
       <label>ID</label>
       <input type="text"  formControlName="id"  [(ngModel)]="newcontact.id" name="id" class="form-control" required>
     </div>
 
-    <p *ngIf="myform.get('id').touched && myform.get('id').hasError('required')" class="text-danger">Write your Id !</p>
+    <p *ngIf="myform.get('id').touched && myform.get('id').hasError('required')" class="text-danger">Write your Id !</p> -->
 
 
 
     <div class="col-sm-4 col-md-4 col-lg-4">
       <label>Name</label>
-      <input type="text" formControlName="name"  [(ngModel)]="newcontact.name" name="name" class="form-control" required minlength="3">
+      <input type="text" formControlName="name"  [(ngModel)]="newcontact.nom" name="name" class="form-control" required minlength="3">
     </div>
 
     <p *ngIf="myform.get('name').touched && myform.get('name').hasError('required')" class="text-danger">Write your Name !</p>
@@ -49,14 +49,14 @@
       <select   formControlName="type"  class="form-control form-control-lg" id="idCat" name="idCat"   [(ngModel)]="newIdCat" required>
         <option value="" disabled>Select a type</option>
         <option *ngFor="let cat of categories" [value]="cat.idCat">
-          {{ cat.nomCat }}
+          {{cat.nomCat }}
 
         </option>
       </select>
     </div>
 
 
-    <p *ngIf="myform.get('type').touched && myform.get('type').hasError('required')" class="text-danger">Write your type !</p>
+    <!--   -->
 
 
 

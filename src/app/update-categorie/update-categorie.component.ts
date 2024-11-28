@@ -22,7 +22,7 @@ export class UpdateCategorieComponent implements OnInit {
  constructor(){}
  ngOnInit(): void {
 
-  console.log("ngOnInit du composant UpdateCategorie ",this.categorie);
+  // console.log("ngOnInit du composant UpdateCategorie ",this.categorie);
 
   }
 

@@ -4,7 +4,7 @@ import { ServiceService } from '../services/service.service';
 
 @Component({
   selector: 'app-liste-categories',
-  templateUrl: './liste-categories.component.html',
+  templateUrl:'./liste-categories.component.html',
   styleUrls: ['./liste-categories.component.css']
 })
 export class ListeCategoriesComponent implements OnInit {
@@ -15,12 +15,12 @@ export class ListeCategoriesComponent implements OnInit {
   constructor(private service: ServiceService) {}
 
   chargerCategories() {
-    this.categories = this.service.listeCategories();
+    // this.categories= this.service.listeCategories();
   }
 
   categorieUpdated(cat: Categorie) {
-    console.log(cat);
-    this.service.ajouterCategorie(cat).subscribe(() => this.chargerCategories());
+    // console.log(cat);
+    // this.service.ajouterCategorie(cat).subscribe(() => this.chargerCategories());
   }
 
 

@@ -7,7 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-contact',
-  templateUrl: './add-contact.component.html',
+  templateUrl:'./add-contact.component.html',
   styleUrls: ['./add-contact.component.css'],
 })
 export class AddContactComponent implements OnInit {
@@ -34,16 +34,26 @@ export class AddContactComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    this.categories = this.addon.listeCategories();
-  }
-
-  addContact() {
 
 
+  addContact(){
 
-    this.newcontact.categorie = this.addon.consulterCategorie(this.newIdCat);
-    this.addon.addcontact(this.newcontact);
+    this.newcontact.categorie = this.categories.find(cat => cat.idCat == this.newIdCat)!;
+
+    this.addon.addContact(this.newcontact)
+    .subscribe(prod => {
+    console.log(prod);
     this.rou.navigate(['contact']);
-  }
+    });
+    }
+
+    ngOnInit(): void {
+      this.addon.listeCategories().subscribe(cats => {console.log(cats);
+      this.categories = cats._embedded.categories;
+      }
+      );
+
+
+    }
+
 }

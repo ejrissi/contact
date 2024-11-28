@@ -8,11 +8,12 @@
                     <th>Email</th>
                     <th>Date</th>
                     <th>category</th>
+
                 </tr>
                 <tbody *ngFor="let p of contact ">
                     <tr>
                         <td>{{p.id}}</td>
-                        <td>{{p.name}}</td>
+                        <td>{{p.nom}}</td>
                         <td>{{p.email}}</td>
                         <td>{{p.date | date:'dd/MM/yyyy'}}</td>
                         <td>{{p.categorie.nomCat}}</td>

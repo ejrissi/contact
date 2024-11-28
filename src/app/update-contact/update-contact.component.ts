@@ -7,7 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-update-contact',
-  templateUrl: './update-contact.component.html',
+  templateUrl:'./update-contact.component.html',
 })
 export class UpdateContactComponent implements OnInit {
   curcontact: Contact = new Contact();
@@ -27,6 +27,7 @@ export class UpdateContactComponent implements OnInit {
     this.myform=this.form.group(
       {
 
+        id:[''],
        name:['',[Validators.required,Validators.minLength(5)]],
        email:['',[Validators.required,Validators.minLength(5)]],
        date:['',[Validators.required]],
@@ -36,20 +37,26 @@ export class UpdateContactComponent implements OnInit {
      )
   }
 
-  ngOnInit(): void {
-    this.categories = this.ser.listeCategories();
-    this.curcontact = this.ser.consultercontact(this.route.snapshot.params['id']);
-    this.updatedCatId = this.curcontact.categorie.idCat;
-  }
+  ngOnInit() {
+    this.ser.listeCategories().subscribe(cats => {this.categories=cats._embedded.categories;
+    console.log(cats);
+    });
+    this.ser.consultercontact(this.route.snapshot.params['id']).
+    subscribe( prod =>{ this.curcontact = prod;
+    this.updatedCatId =
+    this.curcontact.categorie.idCat;
+    } ) ;
 
-  updateContact() {
-
-
-
-    this.curcontact.categorie = this.ser.consulterCategorie(this.updatedCatId);
-    this.ser.updatecontact(this.curcontact);
-    this.rou.navigate(['contact']);
+    }
 
 
-  }
+    updateContact() {
+      this.curcontact.categorie = this.categories.
+      find(cat => cat.idCat == this.updatedCatId)!;
+     this.ser.updatecontact(this.curcontact).subscribe(prod => {
+     this.rou.navigate(['contact']); }
+     );
+
+      }
+
 }

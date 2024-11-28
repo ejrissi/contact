@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { ListeCategoriesComponent } from './liste-categories/liste-categories.component';
 import { UpdateCategorieComponent } from './update-categorie/update-categorie.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { UpdateCategorieComponent } from './update-categorie/update-categorie.co
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ ServiceService],
   bootstrap: [AppComponent]
